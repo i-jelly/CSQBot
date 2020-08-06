@@ -12,7 +12,7 @@ namespace cn.orua.qngel.Code.Model
 {
     class Sex_OrderHandler : IMsgHandler
     {
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             if(e.FromGroup.SetGroupMemberBanSpeak(e.FromQQ, TimeSpan.FromMinutes(1)))
             {

@@ -12,11 +12,10 @@ namespace cn.orua.qngel.Code.Model
 {
     class Register_OrderHandler : IMsgHandler
     {
-        private Base_SQLHelper SQL = new Base_SQLHelper();
 
-        public String Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public String Handler(CQGroupMessageEventArgs e)
         {
-            if (!SQL.HasTable(b)) SQL.NewGroupTable(b);
+            /**if (!SQL.HasTable(b)) SQL.NewGroupTable(b);
             if (!SQL.UserExists(b,e.FromQQ))
             {
                 if (SQL.AddUser(b,e.FromQQ))
@@ -24,8 +23,8 @@ namespace cn.orua.qngel.Code.Model
                     return "注册成功";
                 }
                 return "注册失败";
-            }
-            return "已经注册了";
+            }**/
+            return "注册功能关闭";
         }
        
     }

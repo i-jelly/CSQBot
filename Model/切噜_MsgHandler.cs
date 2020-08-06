@@ -16,7 +16,7 @@ namespace cn.orua.qngel.Code.Model
         private static readonly Dictionary<string, int> cheru = new Dictionary<string, int> {
             {"切",0},{"卟",1 },{"叮",2 },{"咧",3 },{"哔",4 },{"唎",5 },{"啪",6 },{"啰",7 },{"啵",8 },{"嘭",9 },{"噜",10 },{"噼",11 },{"巴",12 },{"拉",13 },{"蹦",14 },{"铃",15 }};
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             int Prefix = "切噜～[CQ:emoji,id=9834]".Length;
             String Msg = e.Message.Text.Trim();

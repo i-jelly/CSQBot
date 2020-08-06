@@ -9,7 +9,7 @@ using System.Data;
 
 namespace cn.orua.qngel.Code
 {
-    public class Base_SQLHelper
+    /**public class Base_SQLHelper
     {
         
         public class SQLHelperData
@@ -405,5 +405,5 @@ namespace cn.orua.qngel.Code
             SetCash(b, AccountID, (CashAdd + int.Parse(GetCash(b, AccountID))).ToString());
             return CashAdd;
         }
-    }
+    }**/
 }

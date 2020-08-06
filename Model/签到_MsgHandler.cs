@@ -11,7 +11,7 @@ namespace cn.orua.qngel.Code.Model
     class 签到_MsgHandler : IMsgHandler
     {
 
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
         private static readonly TimeSpan LateNight = DateTime.Parse("2:00").TimeOfDay;
         private static readonly TimeSpan Overnight = DateTime.Parse("4:00").TimeOfDay;
         private static readonly TimeSpan EarlyMorning = DateTime.Parse("6:00").TimeOfDay;
@@ -23,9 +23,9 @@ namespace cn.orua.qngel.Code.Model
         
         
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
-            if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
+            /**if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
             SQL.AddFavorEveryChat(b, e.FromQQ);
             TimeSpan t = DateTime.Now.TimeOfDay;
             if (SQL.RenewSign(b, e.FromQQ))
@@ -66,8 +66,8 @@ namespace cn.orua.qngel.Code.Model
                 {
                     return "[CQ:image,file=rand/5.jpg]\n签到成功,获得水晶" + SQL.DailySignWithCashUpdate(b, e.FromQQ).ToString();
                 }
-            }
-            return "签过到了";
+            }**/
+            return "数据库关闭";
         }
     }
 }

@@ -17,16 +17,16 @@ namespace cn.orua.qngel.Code.Model
     {
         private String UA = @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36";
         private JsonTextReader reader;
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
 
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             String Order = e.Message.Text.Trim().Substring(22).Trim();
             String Music = Order.Substring(Order.IndexOf("#") + 1);
             String raw;
             //return Music;
-            if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
+            //if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
             try
             {
                 raw = Encoding.Default.GetString(HttpWebClient.Get("http://music.163.com/api/search/pc?limit=1&type=1&s=" + Music, UA));
@@ -44,7 +44,7 @@ namespace cn.orua.qngel.Code.Model
                     if(reader.TokenType.ToString() == "PropertyName" && reader.Value.ToString() == "id")
                     {
                         reader.Read();
-                        SQL.AddFavorEveryChat(b, e.FromQQ);
+                        //SQL.AddFavorEveryChat(b, e.FromQQ);
                         return CQApi.CQCode_Music(int.Parse(reader.Value.ToString()), Native.Sdk.Cqp.Enum.CQMusicType.Netease).ToString();
                     }
                 }

@@ -11,11 +11,11 @@ namespace cn.orua.qngel.Code.Model
 {
     class 摸一摸_MsgHandler : IMsgHandler
     {
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
-            if (!SQL.HasTable(b)) return "";
+            /**if (!SQL.HasTable(b)) return "";
             if (SQL.UserExists(b,e.FromQQ))
             {
                 SQL.AddFavorEveryChat(b, e.FromQQ);
@@ -25,7 +25,8 @@ namespace cn.orua.qngel.Code.Model
                 }
                 return "恶心，恶心啊";
             }
-            return "不认识的孩子呢";
+            return "不认识的孩子呢";**/
+            return "数据库关闭";
         }
     }
 }

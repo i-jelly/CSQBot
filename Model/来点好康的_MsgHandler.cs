@@ -12,11 +12,11 @@ namespace cn.orua.qngel.Code.Model
 {
     class 来点好康的_MsgHandler : IMsgHandler
     {
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
-            if (SQL.UserExists(b, e.FromQQ)) SQL.AddFavorEveryChat(b, e.FromQQ);
+            //if (SQL.UserExists(b, e.FromQQ)) SQL.AddFavorEveryChat(b, e.FromQQ);
             return CQApi.CQCode_Image("pixiv/" + new Base_FileHelper().RandomGetImg("data/image/pixiv")).ToString();
         }
     }

@@ -14,7 +14,7 @@ namespace cn.orua.qngel.Code.Model
 {
     class 超大涩图_MsgHandler : IMsgHandler
     {
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             WebClient _Dl = new WebClient();
             String Filename = "rand/" + new Random().Next(10000, 99999).ToString() + ".jpg";

@@ -11,13 +11,14 @@ namespace cn.orua.qngel.Code.Model
     class 我的余额_MsgHandler : IMsgHandler
     {
 
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
-            if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
+            /**if (!SQL.UserExists(b, e.FromQQ)) return "不认识的孩子呢";
             SQL.AddFavorEveryChat(b, e.FromQQ);
-            return "余额是" + SQL.GetCash(b, e.FromQQ) + "水晶";
+            return "余额是" + SQL.GetCash(b, e.FromQQ) + "水晶";**/
+            return "数据库关闭";
         }
     }
 }

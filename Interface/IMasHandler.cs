@@ -20,6 +20,6 @@ namespace cn.orua.qngel.Code.Interface
         /// </summary>
         /// <param name="e"></param>
         /// <param name="b"></param>
-        String Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b);
+        String Handler(CQGroupMessageEventArgs e);
     }
 }

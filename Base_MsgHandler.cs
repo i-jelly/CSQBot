@@ -28,7 +28,7 @@ namespace cn.orua.qngel.Code
         private bool IsInit = false;
         private Timer tim = new Timer();
         private Native.Sdk.Cqp.Model.Group _GroupID;
-        private Base_SQLHelper SQL = new Base_SQLHelper();
+        //private Base_SQLHelper SQL = new Base_SQLHelper();
         //private static readonly String[] RandomOrder = new string[] {"歪比歪比" };
 
         
@@ -37,7 +37,7 @@ namespace cn.orua.qngel.Code
         private List<long> BlockList = new List<long>();
         private Base_MQTTHelper MQTTHelper = new Base_MQTTHelper();
         private List<CQGroupMessageEventArgs> dd = new List<CQGroupMessageEventArgs>();
-        private Dictionary<long, Base_SQLHelper.SQLHelperData> SQLPool = new Dictionary<long, Base_SQLHelper.SQLHelperData>();
+        //private Dictionary<long, Base_SQLHelper.SQLHelperData> SQLPool = new Dictionary<long, Base_SQLHelper.SQLHelperData>();
 
         public bool isBusy = false;
         public UnityContainer OrderContainer = new UnityContainer();
@@ -97,10 +97,10 @@ namespace cn.orua.qngel.Code
             if (!GroupState.GroupState.ContainsKey(_GroupID))//若缓存中不存在此群
             {
                 GroupState.AddNewGroupToList(_GroupID);//将群加入缓存
-                Base_SQLHelper.SQLHelperData _new = new Base_SQLHelper.SQLHelperData();
-                _new.Connection = new SQLiteConnection("Data Source=data/db/" + _GroupID.ToString() + ".db");
-                _new.command = new SQLiteCommand();
-                SQLPool[_GroupID] = _new;
+                //Base_SQLHelper.SQLHelperData _new = new Base_SQLHelper.SQLHelperData();
+                //_new.Connection = new SQLiteConnection("Data Source=data/db/" + _GroupID.ToString() + ".db");
+                //_new.command = new SQLiteCommand();
+                //SQLPool[_GroupID] = _new;
                 if (GroupConfig.HasConfig(_GroupID))//若存在对应ConfigINI文件则读入相关固化配置
                 {
                     GroupState.GroupState[_GroupID].AllowRepeat = GroupConfig.AllowRepeat(_GroupID);
@@ -134,13 +134,13 @@ namespace cn.orua.qngel.Code
             {//无AT的短语句匹配注册命令
                 //匹配短语
                 //首先尝试获取称呼,若存在称呼则删去后再匹配
-                if(SQL.UserExists(SQLPool[_GroupID],e.FromQQ) && Msg.Contains(SQL.GetCalled(SQLPool[_GroupID], e.FromQQ)))
-                {
-                    //TODO...
-                }
+                //if(SQL.UserExists(SQLPool[_GroupID],e.FromQQ) && Msg.Contains(SQL.GetCalled(SQLPool[_GroupID], e.FromQQ)))
+                //{
+                //    //TODO...
+                //}
                 if (SimpleContainer.IsRegistered<IMsgHandler>(Msg))
                 {
-                    Reply = SimpleContainer.Resolve<IMsgHandler>(Msg).Handler(e,SQLPool[_GroupID]);
+                    Reply = SimpleContainer.Resolve<IMsgHandler>(Msg).Handler(e);
                     if(Reply != "")
                     {
                         _GroupID.SendGroupMessage(Reply);
@@ -160,7 +160,7 @@ namespace cn.orua.qngel.Code
                     }
                     if (OrderContainer.IsRegistered<IMsgHandler>(Order))
                     {
-                        Reply = OrderContainer.Resolve<IMsgHandler>(Order).Handler(e,SQLPool[_GroupID]);
+                        Reply = OrderContainer.Resolve<IMsgHandler>(Order).Handler(e);
                         if(Reply != "")
                         {
                             _GroupID.SendGroupMessage(Reply);

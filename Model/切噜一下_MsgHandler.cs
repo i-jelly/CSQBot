@@ -13,7 +13,7 @@ namespace cn.orua.qngel.Code.Model
     {
         private static readonly Dictionary<int, string> cheru = new Dictionary<int, string> {
             {0,"切"},{1,"卟" },{2,"叮" },{3,"咧"},{4,"哔"},{5,"唎"},{6,"啪"},{7,"啰"},{8,"啵"},{9,"嘭"},{10,"噜"},{11,"噼"},{12,"巴"},{13,"拉"},{14,"蹦"},{15,"铃"}};
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             String str = e.Message.Text.Substring(e.Message.Text.IndexOf("#") + 1);
             if (str.Contains("CQ")) return "切噜噜？";

@@ -14,11 +14,9 @@ namespace cn.orua.qngel.Code.Model
     class Comfort_MsgHandler : IMsgHandler
     {
 
-        private Base_SQLHelper SQL = new Base_SQLHelper();
-
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
-            if (!SQL.HasTable(b))
+            /**if (!SQL.HasTable(b))
             {
                 return "";
             }
@@ -29,7 +27,7 @@ namespace cn.orua.qngel.Code.Model
                 {
                     return "摸摸头";
                 }
-            }
+            }**/
             return "";
         }
     }

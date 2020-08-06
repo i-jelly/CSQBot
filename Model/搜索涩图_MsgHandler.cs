@@ -29,7 +29,7 @@ namespace cn.orua.qngel.Code.Model
         private WebProxy proxy = new WebProxy("127.0.0.1",1081);
         private String ErrMsg = "没有切噜噜......";
 
-        public string Handler(CQGroupMessageEventArgs e, Base_SQLHelper.SQLHelperData b)
+        public string Handler(CQGroupMessageEventArgs e)
         {
             String _Order = e.Message.Text.Trim();
             String _Tag = _Order.Contains("#") ? _Order.Substring(_Order.IndexOf("#") + 1).Trim():"";
